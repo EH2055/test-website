@@ -12,11 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================
-    // 2. M3 Dark Mode Toggle
+    // 2. iOS Theme Toggle
     // =========================================
     const themeToggle = document.getElementById('theme-toggle');
     
-    // Check local storage memory for theme preference
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-theme');
         themeToggle.textContent = '☀️';
@@ -35,24 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================
-    // 3. M3 Scroll-Driven Top App Bar Elevation
+    // 3. Smooth iOS Click Feedback
     // =========================================
-    const navBar = document.querySelector('nav');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            navBar.classList.add('scrolled');
-        } else {
-            navBar.classList.remove('scrolled');
-        }
-    });
+    const interactiveElements = document.querySelectorAll('nav a, .ios-icon-button');
 
-    // =========================================
-    // 4. M3 Interactive Ink Ripple Effect
-    // =========================================
-    const rippleElements = document.querySelectorAll('nav a, .m3-icon-button');
-
-    rippleElements.forEach(element => {
+    interactiveElements.forEach(element => {
         element.style.position = 'relative';
         element.style.overflow = 'hidden';
 
